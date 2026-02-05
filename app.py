@@ -14,13 +14,12 @@ client = ChatCompletionsClient(
 
 response = client.complete(
     messages=[
-        SystemMessage("You are a helpful assistant."),
-        UserMessage("What is the capital of France?"),
+        SystemMessage("You are a helpful assistant.,Always answer in one word"),
+        UserMessage(input("User question:")),
     ],
     temperature=1.0,
     top_p=1.0,
     max_tokens=1000,
     model=model
 )
-
 print(response.choices[0].message.content)
